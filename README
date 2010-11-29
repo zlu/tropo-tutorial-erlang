@@ -1,6 +1,6 @@
-Project Skeleton for the sendsms app.
+This sample application uses Erlang and Webmachine to send SMS via Tropo.
 
-You should find in this directory:
+You can start a web server and make a post request that contains phone number and the message.  This can be done via a web page that contains a post form or a commandline utility such as curl.
 
 README : this file
 Makefile : simple make commands
@@ -19,6 +19,12 @@ start.sh : simple startup script for running sendsms
 
 You probably want to do one of a couple of things at this point:
 
+First you need to create a Tropo script application which contains this line:
+message $msg, { :to => 'tel:+' + $to, :network => 'SMS'}
+
+Then you should add a messaging token to you Tropo app.
+
+Now proceed to the Erlang app.
 0. Build the skeleton application:
    $ make
    - or -
@@ -33,3 +39,9 @@ You probably want to do one of a couple of things at this point:
 3. Add some new resources:
    edit src/YOUR_NEW_RESOURCE.erl
    edit priv/dispatch.conf
+   For this application, I have added the following path:
+   {["sendsms"], sendsms_resource, []}.
+
+4. Run curl "http://localhost:8000/sendsms?to=1650898xxxx&msg=foobar"
+
+This will send the message foobar to the phone number 1650898xxxx, notice you need to use the country code "1" as it is required by Tropo.
