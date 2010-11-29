@@ -1,0 +1,2 @@
+127.0.0.1 - - [28/Nov/2010:20:52:06 -0800] "GET /sendsms?one=two&me=pope HTTP/1.1" 200 25 "" "curl/7.19.7 (universal-apple-darwin10.0) libcurl/7.19.7 OpenSSL/0.9.8l zlib/1.2.3"
+127.0.0.1 - - [28/Nov/2010:20:52:17 -0800] "POST /sendsms HTTP/1.1" 200 25 "" "curl/7.19.7 (universal-apple-darwin10.0) libcurl/7.19.7 OpenSSL/0.9.8l zlib/1.2.3"
