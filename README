@@ -1,6 +1,11 @@
 This sample application uses Erlang and Webmachine to send SMS via Tropo.
 
-You can start a web server and make a post request that contains phone number and the message.  This can be done via a web page that contains a post form or a commandline utility such as curl.
+You can start a web server and make a post request that contains phone number and the message.  This can be done via a web page that contains a post form or a commandline utility such as curl.  Note that to use this application, you need to have a free developer account available at http://www.tropo.com/
+
+Create a Tropo script application which contains this line:
+message $msg, { :to => 'tel:+' + $to, :network => 'SMS'}
+
+Then add a messaging token to you Tropo app.  That's all you need on the Tropo front.  Now let's talk about Erlang and Webmachine.
 
 README : this file
 Makefile : simple make commands
@@ -18,11 +23,6 @@ start.sh : simple startup script for running sendsms
   /www : a convenient place to put your static web content
 
 You probably want to do one of a couple of things at this point:
-
-First you need to create a Tropo script application which contains this line:
-message $msg, { :to => 'tel:+' + $to, :network => 'SMS'}
-
-Then you should add a messaging token to you Tropo app.
 
 Now proceed to the Erlang app.
 0. Build the skeleton application:
