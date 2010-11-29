@@ -35,6 +35,7 @@ Now proceed to the Erlang app.
 
 2. Change the basic application:
    edit src/sendsms_resource.erl
+   This file is responsible for process post request and create a get resquest for Tropo.
 
 3. Add some new resources:
    edit src/YOUR_NEW_RESOURCE.erl
